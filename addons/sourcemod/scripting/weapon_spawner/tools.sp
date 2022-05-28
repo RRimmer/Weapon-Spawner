@@ -178,6 +178,47 @@ stock int FindWeapon(int client, CSWeaponID id)
 	return -1;
 }
 
+stock int FindMeleeWeapon(int client)
+{
+	static int m_hMyWeapons = -1;
+	if(m_hMyWeapons == -1)
+		m_hMyWeapons = FindSendPropInfo("CCSPlayer", "m_hMyWeapons");
+	
+	for (int i = 0, weapon; i <= 252; i += 4)
+	{
+		weapon = GetEntDataEnt2(client, m_hMyWeapons + i);
+		if(weapon != -1 && IsMelee(weapon))
+			return weapon;
+	}
+	
+	return -1;
+}
+
+stock bool IsMelee(int weapon)
+{
+	CSWeaponID melee[] = {
+		CSWeapon_KNIFE,
+		CSWeapon_KNIFE_GG,
+		CSWeapon_KNIFE_T,
+		CSWeapon_FISTS,
+		CSWeapon_MELEE,
+		CSWeapon_AXE,
+		CSWeapon_HAMMER,
+		CSWeapon_SPANNER,
+		CSWeapon_KNIFE_GHOST
+	};
+	
+	CSWeaponID id = CS_ItemDefIndexToID(GetEntProp(weapon, Prop_Send, "m_iItemDefinitionIndex"));
+	
+	for (int i = 0; i < sizeof(melee); ++i)
+	{
+		if(id == melee[i])
+			return true;
+	}
+	
+	return (id > CSWeapon_MAX_WEAPONS_NO_KNIFES && id < CSWeapon_MAX_WEAPONS);
+}
+
 bool GetEndPosition(int client, float fVec[3])
 {
 	float fOrigin[3], fAngles[3];

@@ -1,0 +1,69 @@
+"cfg"
+{
+	"bottom_model"			"models/weapons/rimmer/light/emitter.mdl" 							// Моделька маячка 
+	"bottom_skin"			"1"														// Скин модельки (если иметься)[Если не разбираешься не трогай]
+	
+	"sound_reload_start"	"buttons/button9.wav"									// Звук начала "reload_time" (или после покупки)
+	"sound_reload_finish"	"buttons/lever5.wav"									// Звук окончания "reload_time"
+
+	"Рандомные пистолеты"															// Идентификатор(Должен быть уникальным), отображение в Добавить спавнер + отображение игроку при подтверждении и чате
+	{
+		"color"				"0 0 255"												// Цвет маячка RGB
+		"price"				"1000"													// Стоимость спавнера в $
+		"menu"				"1"														// Подтверждение о покупки "1" // Без подтверждения "0" // Выбрать из списка "2"
+		"time"				"60"													// Время работы спавнера после начала раунда
+		"reload_time"		"2.0"													// Время перезарядки спавнера
+		
+		"prop_model"		"models/weapons/w_pist_deagle_dropped.mdl"				// Что будет отображаться над маяком? (Путь к модельке)
+		"prop_height"		"50.0" 													// Высота "prop_model"
+		"prop_angles"		"300.0 0.0 0.0"											// Повороты (Y Z X)
+		
+		"sprite_model"		""														// Надпись? (Путь к .vtf)
+		"sprite_heigth"		"60.0"													// Высота "sprite_model"
+		"sprite_scale"		"1.0"													// Размер (То есть если будет "2.0" то будет в 2 раза больше "sprite_model")
+		
+		"items"																		// Предметы которые будут давать игроку, если написать один предмет то рандома не будет.
+		{
+			"Glock"			"weapon_glock"				
+			"USP Silencer"	"weapon_usp_silencer"
+			"P250"			"weapon_p250"
+			"Deaglt"		"weapon_deagle"
+			"Elite"			"weapon_elite"
+			"Fiveseven"		"weapon_fiveseven"
+			"HKP2000"		"weapon_hkp2000"
+			"cz75a"			"weapon_cz75a"
+			"Tec9"			"weapon_tec9"
+			"Revolver"		"weapon_revolver"
+		}
+	}
+	
+	"Мед шприц"
+	{
+		"color"			"182 255 0"
+		"price"			"300"
+		"menu"			"1"
+		"time"			"60"
+		
+		"prop_model"	"models/weapons/w_eq_healthshot_dropped.mdl"
+		
+		"items"
+		{
+			"Healthshot"	"weapon_healthshot"
+		}
+	}
+	
+	"Exojump"
+	{
+		"color"			"182 255 0"
+		"price"			"300"
+		"menu"			"1"
+		"time"			"60"
+		
+		"prop_model"	"models/props_survival/upgrades/exojump.mdl"
+
+		"items"
+		{
+			"Exojump"	"exojump"
+		}
+	}
+}

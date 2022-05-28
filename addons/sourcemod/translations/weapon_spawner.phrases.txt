@@ -1,0 +1,62 @@
+"Phrases"
+{
+	"Admin Menu Item"															// Название меню в Админке, Управление сервером
+	{
+		"en"		"Weapon Spawner"
+		"ru"		"Weapon Spawner"
+	}
+	
+	"Main Admin Menu Title"														// Информация при открытии меню Weapon Spawner 
+	{
+		"#format"	"{1:d}"
+		"en"		"Weapon Spawner\nSpawns count: {1}\nSelect option:\n "
+		"ru"		"Weapon Spawner\nКоличество спавнов: {1}\nВыберите действие:\n "
+	}
+	
+	"Add Spawn Item"															// Название в меню Weapon Spawner, добавить спавн
+	{
+		"en"		"Add spawn"
+		"ru"		"Добавить спавн"
+	}
+	
+	"Remove Spawn Item"															// Название в меню Weapon Spawner, удалить спавн
+	{
+		"en"		"Remove spawn"
+		"ru"		"Удалить спавн"
+	}
+	
+	"Spawn Type Menu Title"														// Информация при открытии меню Добавить спавн
+	{
+		"#format"	"{1:d}"
+		"en"		"Weapon Spawner\nSpawns count: {1}\nSelect spawn type:\n "
+		"ru"		"Weapon Spawner\nКоличество спавнов: {1}\nВыберите тип спавна:\n "
+	}
+	
+	"Offer Menu Title"															// Подтверждение покупки
+	{
+		"#format"	"{1:s},{2:d}"
+		"en"		"Вы действительно хотите купить\n{1} за {2}$?\n "
+		"ru"		"Вы действительно хотите купить\n{1} за {2}$?\n "
+	}
+	
+	"Items List Menu Title"														// Подтверждение покупки и выбор
+	{
+		"#format"	"{1:s},{2:d}"
+		"en"		"{1}\nСтоимость: {2}$\nВыберите предмет:\n "
+		"ru"		"{1}\nСтоимость: {2}$\nВыберите предмет:\n "
+	}
+	
+	"You Get Item"																// Собщение в чате, после покупки
+	{
+		"#format"	"{1:s},{2:d}"
+		"en"		"Вы получили {GREEN}{1} {DEFAULT}за {LIGHTGREEN}{2}$"
+		"ru"		"Вы получили {GREEN}{1} {DEFAULT}за {LIGHTGREEN}{2}$"
+	}
+	
+	"Not Enough Money"															// Сообщение в чате, при недостатке денег
+	{
+		"#format"	"{1:s},{2:d}"
+		"en"		"{RED}Недостаточно денег для {GREEN}{1}{DEFAULT}. Стоимость: {LIGHTGREEN}{2}$"
+		"ru"		"{RED}Недостаточно денег для {GREEN}{1}{DEFAULT}. Стоимость: {LIGHTGREEN}{2}$"
+	}
+}

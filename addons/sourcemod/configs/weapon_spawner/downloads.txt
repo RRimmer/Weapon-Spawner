@@ -1,4 +1,4 @@
-//Модель маяка
+////Модель маяка
 materials/models/rimmer/light/emitter001.vmt
 materials/models/rimmer/light/emitter001.vtf
 materials/models/rimmer/light/emitter001_glow.vmt

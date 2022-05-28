@@ -22,6 +22,7 @@ public Plugin myinfo =
 #include "weapon_spawner/forwards.sp"
 #include "weapon_spawner/modules.sp"
 #include "weapon_spawner/timers.sp"
+#include "weapon_spawner/use_counter.sp"
 
 Config g_Config = null;
 PointsConfig g_PointConfig = null;
@@ -30,6 +31,7 @@ Modules g_Modules = null;
 int g_iTargetRef[MAXPLAYERS+1] = {-1, ...};
 RemoveTimers g_RemoveTimers = null;
 ReloadTimers g_ReloadTimers = null;
+UseCounter g_UseCounter = null;
 
 #include "weapon_spawner/tools.sp"
 #include "weapon_spawner/adminmenu.sp"
@@ -55,6 +57,7 @@ public void OnPluginStart()
 	g_Modules = new Modules();
 	g_RemoveTimers = new RemoveTimers();
 	g_ReloadTimers = new ReloadTimers();
+	g_UseCounter = new UseCounter();
 
 	InitAdminMenu();
 
@@ -86,6 +89,7 @@ public void Event_RoundStart(Event event, const char[] name, bool dontBroadcast)
 	g_RemoveTimers.KillAndClear();
 	g_ReloadTimers.KillAndClear();
 	CreatePoints();
+	g_UseCounter.Clear();
 }
 
 public Action Cmd_WsSpanwer(int client, int args)
@@ -200,6 +204,14 @@ void CreatePoint(Point point)
 public void OnStartTouch(const char[] output, int trigger, int client, float delay)
 {
 	int id = GetEntProp(trigger, Prop_Data, "m_iHammerID");
+	int limit_player = g_Config.GetLimitPerPlayer(id);
+	int use_count = g_UseCounter.GetUseCount(client, trigger);
+	if(limit_player && use_count >= limit_player)
+	{
+		CGOPrintToChat(client, "%t", "You Reached Limit", use_count, limit_player);
+		return;
+	}
+
 	int price = g_Config.GetPrice(id);
 	int money = GetEntProp(client, Prop_Send, "m_iAccount");
 	if(money < price)
@@ -222,6 +234,14 @@ public void OnStartTouch(const char[] output, int trigger, int client, float del
 			{
 				SetEntProp(client, Prop_Send, "m_iAccount", money - price);
 				CGOPrintToChat(client, "%t", "You Get Item", szItemName, price);
+				
+				g_UseCounter.IncUseCount(client, trigger);
+				if(IsLimitReached(trigger, id))
+				{
+					DisableSpawn(trigger);
+					return;
+				}
+
 				ReloadSpawn(trigger, id);
 			}
 		}
@@ -265,11 +285,7 @@ void ReloadSpawn(int trigger, int id)
 	if(szSound[0])
 		EmitAmbientSound(szSound, fOrigin);
 
-	UnhookSingleEntityOutput(trigger, "OnStartTouch", OnStartTouch);
-	
-	int light = GetEntPropEnt(trigger, Prop_Send, "m_hEffectEntity");
-	if(light != -1)
-		AcceptEntityInput(light, "KillHierarchy");
+	DisableSpawn(trigger);
 	
 	float timeleft = g_RemoveTimers.GetTimeLeft(EntIndexToEntRef(trigger));
 	if(timeleft != 0.0 && timeleft < reload_time)
@@ -347,14 +363,27 @@ public Action Timer_RemoveSpawn(Handle timer, any iEntRef)
 {
 	int trigger = EntRefToEntIndex(iEntRef);
 	if(IsValidEntity(trigger))
-	{
-		UnhookSingleEntityOutput(trigger, "OnStartTouch", OnStartTouch);
-	
-		int light = GetEntPropEnt(trigger, Prop_Send, "m_hEffectEntity");
-		if(light != -1)
-			AcceptEntityInput(light, "KillHierarchy");
-	}
+		DisableSpawn(trigger);
 
 	g_RemoveTimers.Remove(timer);
 	return Plugin_Stop;
+}
+
+bool IsLimitReached(int trigger, int id)
+{
+	int limit = g_Config.GetLimit(id);
+	if(!limit)
+		return false;
+	
+	int total = g_UseCounter.GetTotal(trigger);
+	return (total >= limit);
+}
+
+void DisableSpawn(int trigger)
+{
+	UnhookSingleEntityOutput(trigger, "OnStartTouch", OnStartTouch);
+	
+	int light = GetEntPropEnt(trigger, Prop_Send, "m_hEffectEntity");
+	if(light != -1)
+		AcceptEntityInput(light, "KillHierarchy");
 }

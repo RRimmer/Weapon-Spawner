@@ -242,4 +242,16 @@ methodmap Config < KeyValues
 		this.Rewind();
 		return this.JumpToKeySymbol(id) ? this.GetFloat("reload_time") : 0.0;
 	}
+
+	public int GetLimit(int id)
+	{
+		this.Rewind();
+		return this.JumpToKeySymbol(id) ? this.GetNum("limit") : 0;
+	}
+
+	public int GetLimitPerPlayer(int id)
+	{
+		this.Rewind();
+		return this.JumpToKeySymbol(id) ? this.GetNum("limit_player") : 0;
+	}
 };

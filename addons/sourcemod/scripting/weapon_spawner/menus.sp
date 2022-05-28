@@ -72,6 +72,14 @@ public int OfferMenuHandler(Menu menu, MenuAction action, int client, int param)
 			{
 				SetEntProp(client, Prop_Send, "m_iAccount", money - price);
 				CGOPrintToChat(client, "%t", "You Get Item", szItemName, price);
+
+				g_UseCounter.IncUseCount(client, trigger);
+				if(IsLimitReached(trigger, id))
+				{
+					DisableSpawn(trigger);
+					return 0;
+				}
+
 				ReloadSpawn(trigger, id);
 			}
 		}
@@ -137,6 +145,14 @@ public int ItemsListMenuHandler(Menu menu, MenuAction action, int client, int pa
 			{
 				SetEntProp(client, Prop_Send, "m_iAccount", money - price);
 				CGOPrintToChat(client, "%t", "You Get Item", szName, price);
+
+				g_UseCounter.IncUseCount(client, trigger);
+				if(IsLimitReached(trigger, id))
+				{
+					DisableSpawn(trigger);
+					return 0;
+				}
+
 				ReloadSpawn(trigger, id);
 			}
 		}

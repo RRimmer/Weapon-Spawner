@@ -25,6 +25,15 @@ methodmap Config < KeyValues
 		return view_as<Config>(kv);
 	}
 
+	property bool Warmup
+	{
+		public get()
+		{
+			this.Rewind();
+			return view_as<bool>(this.GetNum("warmup"));
+		}
+	}
+
 	public bool GetTypeName(int id, char[] szName, int maxlen)
 	{
 		this.Rewind();

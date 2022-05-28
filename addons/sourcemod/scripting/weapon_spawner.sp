@@ -88,8 +88,12 @@ public void Event_RoundStart(Event event, const char[] name, bool dontBroadcast)
 {
 	g_RemoveTimers.KillAndClear();
 	g_ReloadTimers.KillAndClear();
-	CreatePoints();
 	g_UseCounter.Clear();
+
+	if(GameRules_GetProp("m_bWarmupPeriod", 1) && !g_Config.Warmup)
+		return;
+	
+	CreatePoints();
 }
 
 public Action Cmd_WsSpanwer(int client, int args)

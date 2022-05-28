@@ -1,8 +1,0 @@
-"Phrases"
-{
-	"You Already Have Vip"
-	{
-		"en"		"{GREEN}Вы уже имеете VIP"
-		"ru"		"{GREEN}Вы уже имеете VIP"
-	}
-}

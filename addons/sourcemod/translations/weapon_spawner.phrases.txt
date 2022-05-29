@@ -39,35 +39,35 @@
 	"Offer Menu Title"															// Подтверждение покупки
 	{
 		"#format"	"{1:s},{2:d}"
-		"en"		"Do you really want to buy\n{1} за {2}$?\n "
+		"en"		"Do you really want to buy\n{1} for {2}$?\n "
 		"ru"		"Вы действительно хотите купить\n{1} за {2}$?\n "
 	}
 	
 	"Items List Menu Title"														// Подтверждение покупки и выбор
 	{
 		"#format"	"{1:s},{2:d}"
-		"en"		"{1}\nСтоимость: {2}$\nВыберите предмет:\n "
+		"en"		"{1}\nPrice: {2}$\Choose item:\n "
 		"ru"		"{1}\nСтоимость: {2}$\nВыберите предмет:\n "
 	}
 	
 	"You Get Item"																// Собщение в чате, после покупки
 	{
 		"#format"	"{1:s},{2:d}"
-		"en"		"Вы получили {OLIVE}{1} {BLUE}за {OLIVE}{2}$"
+		"en"		"You received {OLIVE}{1} {BLUE}for {OLIVE}{2}$"
 		"ru"		"Вы получили {OLIVE}{1} {BLUE}за {OLIVE}{2}$"
 	}
 	
 	"Not Enough Money"															// Сообщение в чате, при недостатке денег
 	{
 		"#format"	"{1:s},{2:d}"
-		"en"		"Недостаточно денег для {OLIVE}{1}{BLUE}. Стоимость: {OLIVE}{2}$"
+		"en"		"Not enough money for {OLIVE}{1}{BLUE}. Price: {OLIVE}{2}$"
 		"ru"		"Недостаточно денег для {OLIVE}{1}{BLUE}. Стоимость: {OLIVE}{2}$"
 	}
 
 	"You Reached Limit"															// Сообщение в чате о достижении лимита
 	{
 		"#format"	"{1:d},{2:d}"
-		"en"		"Вы достигли лимит использования этого спавнера [{OLIVE}{1}{BLUE}/{OLIVE}{2}]"
+		"en"		"You have reached the usage limit for this spawner [{OLIVE}{1}{BLUE}/{OLIVE}{2}]"
 		"ru"		"Вы достигли лимит использования этого спавнера [{OLIVE}{1}{BLUE}/{OLIVE}{2}]"
 	}
 }

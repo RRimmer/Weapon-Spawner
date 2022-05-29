@@ -1,8 +1,8 @@
 "Phrases"
 {
 	{																			// Префикс в чате
-		"ru"		"{BLUE}[{OLIVE}Weapon Spawner{BLUE}] {OLIVE}| {BLUE}"
 		"en"		"{BLUE}[{OLIVE}Weapon Spawner{BLUE}] {OLIVE}| {BLUE}"
+		"ru"		"{BLUE}[{OLIVE}Weapon Spawner{BLUE}] {OLIVE}| {BLUE}"
 	}
 	"Admin Menu Item"															// Название меню в Админке, Управление сервером
 	{
@@ -39,7 +39,7 @@
 	"Offer Menu Title"															// Подтверждение покупки
 	{
 		"#format"	"{1:s},{2:d}"
-		"en"		"Вы действительно хотите купить\n{1} за {2}$?\n "
+		"en"		"Do you really want to buy\n{1} за {2}$?\n "
 		"ru"		"Вы действительно хотите купить\n{1} за {2}$?\n "
 	}
 	
@@ -53,21 +53,21 @@
 	"You Get Item"																// Собщение в чате, после покупки
 	{
 		"#format"	"{1:s},{2:d}"
-		"en"		"Вы получили {GREEN}{1} {DEFAULT}за {LIGHTGREEN}{2}$"
-		"ru"		"Вы получили {GREEN}{1} {DEFAULT}за {LIGHTGREEN}{2}$"
+		"en"		"Вы получили {OLIVE}{1} {BLUE}за {OLIVE}{2}$"
+		"ru"		"Вы получили {OLIVE}{1} {BLUE}за {OLIVE}{2}$"
 	}
 	
 	"Not Enough Money"															// Сообщение в чате, при недостатке денег
 	{
 		"#format"	"{1:s},{2:d}"
-		"en"		"{RED}Недостаточно денег для {GREEN}{1}{DEFAULT}. Стоимость: {LIGHTGREEN}{2}$"
-		"ru"		"{RED}Недостаточно денег для {GREEN}{1}{DEFAULT}. Стоимость: {LIGHTGREEN}{2}$"
+		"en"		"Недостаточно денег для {OLIVE}{1}{BLUE}. Стоимость: {OLIVE}{2}$"
+		"ru"		"Недостаточно денег для {OLIVE}{1}{BLUE}. Стоимость: {OLIVE}{2}$"
 	}
 
 	"You Reached Limit"															// Сообщение в чате о достижении лимита
 	{
 		"#format"	"{1:d},{2:d}"
-		"en"		"{RED}Вы достигли лимит использования этого спавнера [{1}/{2}]"
-		"ru"		"{RED}Вы достигли лимит использования этого спавнера [{1}/{2}]"
+		"en"		"Вы достигли лимит использования этого спавнера [{OLIVE}{1}{BLUE}/{OLIVE}{2}]"
+		"ru"		"Вы достигли лимит использования этого спавнера [{OLIVE}{1}{BLUE}/{OLIVE}{2}]"
 	}
 }

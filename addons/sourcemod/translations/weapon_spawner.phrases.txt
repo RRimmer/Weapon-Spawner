@@ -1,5 +1,6 @@
 "Phrases"
 {
+	"Prefix"
 	{																			// Префикс в чате
 		"en"		"{BLUE}[{OLIVE}Weapon Spawner{BLUE}] {OLIVE}| {BLUE}"
 		"ru"		"{BLUE}[{OLIVE}Weapon Spawner{BLUE}] {OLIVE}| {BLUE}"

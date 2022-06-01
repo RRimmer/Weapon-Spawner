@@ -188,18 +188,18 @@ public bool OnGetExplosives(int client, int id, const char[] name)
 	{
 		int ammo = GetEntProp(weapon, Prop_Send, "m_iClip1");
 		SetEntProp(weapon, Prop_Send, "m_iClip1", ammo + 1);
+		return true;
 	}
-	else
+	
+	int explosive = GivePlayerItem(client, name);
+	if(explosive != -1)
 	{
-		int mine = GivePlayerItem(client, name);
-		if(mine != -1)
-		{
-			EquipPlayerWeapon(client, mine);
-			SetEntProp(weapon, Prop_Send, "m_iClip1", 1);
-		}
+		EquipPlayerWeapon(client, explosive);
+		SetEntProp(explosive, Prop_Send, "m_iClip1", 1);
+		return true;
 	}
 
-	return true;
+	return false;
 }
 
 public bool OnGetShield(int client, int id, const char[] name)

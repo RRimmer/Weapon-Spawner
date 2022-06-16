@@ -389,5 +389,11 @@ void DisableSpawn(int trigger)
 	
 	int light = GetEntPropEnt(trigger, Prop_Send, "m_hEffectEntity");
 	if(light != -1)
-		AcceptEntityInput(light, "KillHierarchy");
+	{
+		AcceptEntityInput(light, "LightOff");
+
+		SetVariantString("OnUser1 !self:KillHierarchy::0.1:-1");
+		AcceptEntityInput(light, "AddOutput");
+		AcceptEntityInput(light, "FireUser1");
+	}
 }

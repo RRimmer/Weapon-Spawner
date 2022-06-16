@@ -70,7 +70,12 @@ methodmap PointsConfig < ArrayList
 			}
 		}
 
-		char szPath[PLATFORM_MAX_PATH], szMap[64];
+		char szPath[PLATFORM_MAX_PATH];
+		BuildPath(Path_SM, szPath, sizeof(szPath), "configs/weapon_spawner/maps/");
+		if(!DirExists(szPath))
+			CreateDirectory(szPath, 511);
+		
+		char szMap[64];
 		GetCurrentMap(szMap, sizeof(szMap));
 		ReplaceString(szMap, sizeof(szMap), "/", "_");
 		BuildPath(Path_SM, szPath, sizeof(szPath), "configs/weapon_spawner/maps/%s.txt", szMap);

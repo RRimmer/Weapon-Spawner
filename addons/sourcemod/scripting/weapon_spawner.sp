@@ -13,7 +13,7 @@ public Plugin myinfo =
 	name = "Weapon Spawner | Core",
 	author = "Rimmer & firegaming",
 	description = "",
-	version = "1.0.4",
+	version = "1.0.5",
 	url = "https://discord.gg/sR9YAaC"
 };
 

@@ -6,7 +6,7 @@ materials/models/rimmer/light/emitter001_glow.vtf
 materials/models/rimmer/light/emitter001_illum.vtf
 materials/models/rimmer/light/emitter_n.vtf
 models/weapons/rimmer/light/emitter.vvd
-models/weapons/rimmer/light/emitter.dx80.vtx
+models/weapons/rimmer/light/emitter.dx80.vtx123123
 models/weapons/rimmer/light/emitter.dx90.vtx
 models/weapons/rimmer/light/emitter.sw.vtx
 

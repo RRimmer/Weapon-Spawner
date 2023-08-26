@@ -144,6 +144,11 @@ void CreatePoint(Point point)
 	{
 		SetVariantString("!activator");
 		AcceptEntityInput(light, "SetParent", trigger, light);
+		float newAngles[3];
+		newAngles[0] = -90.0;
+		newAngles[1] = 0.0;
+		newAngles[2] = 0.0;
+		TeleportEntity(light, NULL_VECTOR, NULL_VECTOR, newAngles);
 	}
 	
 	char szModel[PLATFORM_MAX_PATH];
